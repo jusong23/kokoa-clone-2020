@@ -1,0 +1,219 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 100vh;
+}
+
+#chat-screen .alt-header,
+#chat-screen .status-bar {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #abc1d1;
+}
+
+#chat-screen .status-bar {
+  z-index: 2;
+}
+
+#chat-screen .alt-header {
+  top: 10px;
+  z-index: 1; /*층 같은거 1층이 제일 아래깔림 ! */
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateX(-50px); /*화면상 안보이는 위치 X(-50px)에서*/
+    opacity: 0;
+  }
+  to {
+    transform: none; /*원래 화면(animation)적용 전 */
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn__own {
+  from {
+    transform: translateX(50px); /*화면상 안보이는 위치 X(+50px)에서*/
+    opacity: 0;
+  }
+  to {
+    transform: none; /*원래 화면(animation)적용 전 */
+    opacity: 1;
+  }
+}
+
+.main-chat {
+  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chats__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.from-left-side {
+  animation: fadeIn 0.5s linear forwards;
+}
+
+.from-right-side {
+  animation: fadeIn__own 0.5s linear forwards;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message__author {
+  margin-bottom: 8px;
+  display: block; /*margin-bottom 넣기위해*/
+}
+
+.message__bubble {
+  background-color: white;
+  padding: 8px 13px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-right: 5px;
+  border-top-left-radius: 0px; /*각각 모서리에 효과준 것*/
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message__time,
+.message__author {
+  margin-bottom: 5px;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 10px;
+}
+
+.message__time--own {
+  margin-right: 5px;
+}
+
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+/* order : flex child 에게만 적용되는 순서정하기*/
+
+.reply i {
+  opacity: 0.5;
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 0.3 ease-in-out;
+}
+.reply .reply__column:first-child {
+  width: 5%;
+}
+.reply .reply__column:last-child {
+  /*pseudo selcetor */
+  width: 95%;
+}
+.reply input {
+  height: 30px;
+  width: 100%; /*안에 있는 내용물 (.reply__column) 부터 10 / 90 으로 구분돼어야*/
+  transition: all 1s ease-in-out; /*변화 보려고*/
+}
+
+.reply__column:last-child > i, /*direct children, 즉 smile만 가리키는 것 */
+.reply__column:last-child button {
+  /*안그러면 button안에 있는 i (화살표)도 가리킴*/
+  position: absolute;
+  right: 18px;
+  top: 7px;
+}
+
+.reply__column:last-child > i {
+  right: 55px;
+  top: 15px;
+}
+.reply input {
+  height: 30px;
+  width: 100%;
+  border: var(--main-border);
+  border-radius: 20px;
+  padding: 1px;
+}
+
+.reply__column button {
+  background-color: var(--yellow);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none; /*클릭해도 아무일 x */
+}
+
+.reply__column button i {
+  opacity: 1;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out; /*변화보기 위함*/
+}
+
+/*focus된게 안에있다면(.reply__column button:focus) */
+/* .reply__column:first-child이 opacity: 0; visibility: hidden; 되도록 실행 */
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 96vw; /*전체 95%*/
+  transform: translateX(-7%) translateY(-80px);
+}
+
+/*box-sizing 복습*/
+
+.reply:focus-within {
+  transform: translateY(80px);
+}
+
+/* :focus-within 복습 */

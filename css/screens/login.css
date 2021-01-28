@@ -1,0 +1,55 @@
+.welcome-header {
+  margin: 90px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /*세로축 정렬*/
+  align-items: center;
+}
+.welcome-header__title {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+.welcome-header__text {
+  width: 60%;
+  opacity: 0.7;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 30px;
+}
+
+#login-form input {
+  border: none;
+  padding: 15px 0px;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+#login-form input:not([type="submit"]) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border-color 0.5s ease-in-out;
+} /*submit 제외하고 쓰겠다*/
+
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#login-form input:focus {
+  border-color: var(--yellow);
+}
+
+#login-form input[type="submit"] {
+  background-color: var(--yellow);
+  cursor: pointer; /*커서 대면 pointer 뜸*/
+  padding: 20px 0px;
+  border-radius: 5px;
+} /*submit만 적용해서 쓰겠다*/
+
+#login-form a {
+  text-align: center;
+  text-decoration: none; /*강조하는거 (밑줄,,등등)*/
+  color: inherit; /*저장된 까만색 쓰겟다*/
+  font-size: 13px;
+}

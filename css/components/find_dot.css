@@ -1,0 +1,18 @@
+.find--dot1 {
+  color: tomato;
+  position: relative;
+}
+
+.find--dot2 {
+  background-color: tomato;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /*(nav__link)보다위로 오게 ,
+           가장 가까운 position: relative - father(.nav__link) 기준 */
+  left: 32px;
+  bottom: 30px;
+}

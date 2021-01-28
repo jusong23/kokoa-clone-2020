@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import "reset.css";
+@import "variables.css";
+
+/*Component*/
+@import "components/status-bar.css";
+@import "components/nav-bar.css";
+@import "components/screen-header.css";
+@import "components/user-component.css";
+@import "components/badge.css";
+@import "components/find.css";
+@import "components/icon-low.css";
+@import "components/alt-screen-header.css";
+@import "components/no-mobile.css";
+
+/* Screnns */
+@import "screens/login.css";
+@import "screens/friends.css";
+@import "screens/more.css";
+@import "screens/settings.css";
+@import "screens/chat.css";
+
+body {
+  background-color: white;
+  color: #2e363e;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-screen {
+  padding: 0px var(--horizontal-space);
+}
+
+/* screen-header 점 넣기*/
+/* chat 창 border 및 margin bottom 넣기*/
